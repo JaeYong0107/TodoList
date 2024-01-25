@@ -32,7 +32,95 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.Login-content {
+  width: 100%;
+  height: 100vh;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginBtn {
+  margin-left: 10px;
+}
+
+.Login {
+  background-color: #929aa9;
+  border-radius: 15px;
+  width: 40%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 32vw;
+  height: 40px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+button {
+  margin-top: 30px;
+  background-color: rgba(28, 9, 98, 0.864);
+  color: white;
+  width: 140px;
+  height: 40px;
+}
+
+.Todo-content {
+  width: 100%;
+  height: 100vh;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Todo {
+  background-color: antiquewhite;
+  border-radius: 15px;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar {
+  background-color: #2a1e02de;
+  border: 2px solid navy;
+  border-radius: 15px;
+  margin: 70px 0;
+  width: 50vw;
+  height: 7vh;
+}
+
+.Todo-List {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Todo-List input {
+  background-color: rgb(221, 231, 150);
+}
+
+.checkbox {
+  margin-right: 10px;
+  width: 40px;
 }

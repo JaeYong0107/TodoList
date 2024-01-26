@@ -1,12 +1,18 @@
 import './App.css';
-import Login from './Pages/LoginPage';
-import Todo from './Pages/TodoPage';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Pages/LoginPage";
+import Todo from "./Pages/TodoPage";
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      <Todo />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path="/Todo" element={<Todo />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

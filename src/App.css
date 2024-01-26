@@ -41,7 +41,6 @@
 .Login-content {
   width: 100%;
   height: 100vh;
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,17 +73,32 @@ input {
 }
 
 button {
-  margin-top: 30px;
   background-color: rgba(28, 9, 98, 0.864);
   color: white;
   width: 140px;
   height: 40px;
 }
 
+.LoginBtn {
+  margin-top: 30px;
+}
+
+.Todo-nav {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+.LogoutBtn {
+  margin-left: 20.5%;
+  margin-right: 15%;
+}
+
 .Todo-content {
   width: 100%;
   height: 100vh;
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,13 +125,24 @@ button {
 
 .Todo-List {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Todo-row {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.Todo-List input {
+.Todo-row input {
   background-color: rgb(221, 231, 150);
+}
+
+.Todo-row button {
+  width: 50px;
+  margin-left: 10px;
 }
 
 .checkbox {

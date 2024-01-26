@@ -1,10 +1,20 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom"
 
 const Todo = () => {
 
+    const ProgressBar = styled.div`
+        background-color: #61dafb;
+        width: ${({ width }) => `${width}%`};
+        height: 7vh;
+        border: 1px solid black;
+        border-radius: 50px;
+    `
+
+    //----------------------------------------------------------------------
     const [inputs, setInputs] = useState([
-        { input: '' }
+        { input: '', checked: false }
     ]);
 
     console.log(inputs);
@@ -16,7 +26,7 @@ const Todo = () => {
     }
 
     const AddTextBox = () => {
-        setInputs([...inputs, { input: '' }]);
+        setInputs([...inputs, { input: '', checked: false }]);
     }
 
     const DelTextBox = (index) => {
@@ -32,6 +42,17 @@ const Todo = () => {
         setInputs(list);
     }
 
+    const ChangeCheckBox = (index) => {
+        const list = [...inputs];
+        list[index].checked = !list[index].checked;
+        setInputs(list)
+    }
+
+    const checkedCount = inputs.filter(input => input.checked).length;
+
+    const gage = (checkedCount / inputs.length) * 100;
+
+
     return (
         <div className="Todo-content">
             <nav className="Todo-nav">
@@ -39,12 +60,20 @@ const Todo = () => {
                 <button className="LogoutBtn" onClick={Logout}>로그아웃</button>
             </nav>
             <div className="Todo">
-                <div className="bar" />
+                <div className="progress-bar">
+                    <div className="progress">
+                        <ProgressBar width={gage} />
+                    </div>
+                    <h1>{Math.round(gage)}%</h1>
+                </div>
                 <div className="Todo-List">
                     {inputs.map((name, index) => (
                         <div key={index} className="Todo-row">
-                            <input className="checkbox" type="checkbox" />
-                            <input name="input" className="text" type="text" required
+                            <input className="checkbox" type="checkbox"
+                                checked={name.checked}
+                                onClick={() => ChangeCheckBox(index)}
+                            />
+                            <input className="text" type="text" required
                                 value={name.input}
                                 onChange={(event) => ChangeTexBox(event, index)}
                             />
@@ -58,7 +87,7 @@ const Todo = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
